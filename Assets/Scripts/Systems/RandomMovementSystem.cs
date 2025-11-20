@@ -54,7 +54,7 @@ public partial struct RandomMovementJob : IJobEntity
         // Previous behavior: if reached target, pick a new one; else push target to UnitMover
         if (math.distancesq(localTransform.Position, randomMovement.targetPosition) < UnitMoverSystem.REACHED_TARGET_POSITION_DISTANCE_SQ)
         {
-            Unity.Mathematics.Random rnd = randomMovement.random;
+            Unity.Mathematics.Random rnd = randomMovement.randomSeed;
 
             float3 newTarget;
             float2 areaSize = randomMovement.areaSize;
@@ -71,7 +71,7 @@ public partial struct RandomMovementJob : IJobEntity
             } while ((newTarget.x < areaSize.x * -0.5f || newTarget.x > areaSize.x * 0.5f || newTarget.z < areaSize.y * -0.5f || newTarget.z > areaSize.y * 0.5f));
 
             randomMovement.targetPosition = newTarget;
-            randomMovement.random = rnd;
+            randomMovement.randomSeed = rnd;
         }
         else
         {

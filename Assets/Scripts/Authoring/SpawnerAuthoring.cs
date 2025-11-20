@@ -4,8 +4,6 @@ using Unity.Mathematics;
 
 public class SpawnerAuthoring : MonoBehaviour
 {
-    [Header("Spawn")]
-    public int spawnCount = 1;
 
     public Vector2 areaSize = new Vector2(5f, 5f);
     public float areaOffsetY = 0f;
@@ -21,7 +19,6 @@ public class SpawnerAuthoring : MonoBehaviour
             Entity entity = GetEntity(TransformUsageFlags.Dynamic);
             AddComponent(entity, new Spawner
             {
-                spawnCount = authoring.spawnCount,
                 randomMovementDistanceMin = authoring.randomMovementDistanceMin,
                 randomMovementDistanceMax = authoring.randomMovementDistanceMax,
                 hasSpawned = false,
