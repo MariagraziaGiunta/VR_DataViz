@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7299527177299569159}
   - component: {fileID: 3980359835157423811}
   - component: {fileID: 7494364064435358589}
-  - component: {fileID: 8741079681591121327}
+  - component: {fileID: 6490761928333553500}
   - component: {fileID: 1613758200676228362}
   m_Layer: 0
   m_Name: Floor
@@ -111,7 +111,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8741079681591121327
+--- !u!114 &6490761928333553500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,9 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2e9456c1429a488729e106528612b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoFindSpawner: 1
-  planeMesh: 0
-  matchSpawnerPosition: 1
 --- !u!114 &1613758200676228362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,12 +130,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5480116061139851285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 882cc25bb2ded0b4a981620ab66afdaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeMesh: 0
   wallPrefab: {fileID: 0}
   verticalOffset: 0
   wallOutwardOffset: 0

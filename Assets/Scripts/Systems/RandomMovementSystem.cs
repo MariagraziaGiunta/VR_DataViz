@@ -10,8 +10,10 @@ partial struct RandomMovementSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        RandomMovementJob job = new RandomMovementJob { };
-        job.ScheduleParallel();
+        RandomMovementJob randomMovementJob = new RandomMovementJob {
+            spawner = SystemAPI.GetSingleton<Spawner>()
+        };
+        randomMovementJob.ScheduleParallel();
         //*/
 
         /*
@@ -49,6 +51,7 @@ partial struct RandomMovementSystem : ISystem
 [BurstCompile]
 public partial struct RandomMovementJob : IJobEntity
 {
+    public Spawner spawner;
     public void Execute(ref RandomMovement randomMovement, ref UnitMover unitMover, in LocalTransform localTransform)
     {
         // Previous behavior: if reached target, pick a new one; else push target to UnitMover
@@ -57,7 +60,7 @@ public partial struct RandomMovementJob : IJobEntity
             Unity.Mathematics.Random rnd = randomMovement.randomSeed;
 
             float3 newTarget;
-            float2 areaSize = randomMovement.areaSize;
+            float2 areaSize = spawner.areaSize;
 
             // keep generating until the new target is inside [-5, 5] on X and Z
             do

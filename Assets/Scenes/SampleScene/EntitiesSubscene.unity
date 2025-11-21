@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fb3218f0accb24bb78f9ee67122b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaSize: {x: 100, y: 100}
   areaOffsetY: 0
   randomMovementDistanceMin: 1
   randomMovementDistanceMax: 2
+  minArea: 7.5
 --- !u!4 &777593485
 Transform:
   m_ObjectHideFlags: 0

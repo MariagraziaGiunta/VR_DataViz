@@ -52,7 +52,7 @@ partial struct SpawnerSystem : ISystem
                 Entity personEntity = state.EntityManager.Instantiate(entitiesReferences.personPrefabEntity);
                 
                 //occorre moltiplicare per un valore abbastanza grande (in questo caso l'area) per "disperdere" i valori, altrimenti vengono generati valori troppo simili tra loro
-                Random rnd = new Random((uint)(personEntity.Index* spawner.ValueRO.areaSize.x)); 
+                Random rnd = new Random((uint)(personEntity.Index * 888u));
 
                 float rx = rnd.NextFloat(-spawner.ValueRO.areaSize.x * 0.5f, spawner.ValueRO.areaSize.x * 0.5f);
                 float rz = rnd.NextFloat(-spawner.ValueRO.areaSize.y * 0.5f, spawner.ValueRO.areaSize.y * 0.5f);
@@ -69,7 +69,6 @@ partial struct SpawnerSystem : ISystem
                     distanceMin = spawner.ValueRO.randomMovementDistanceMin,
                     distanceMax = spawner.ValueRO.randomMovementDistanceMax,
                     randomSeed = new Random((uint)personEntity.Index),
-                    areaSize = spawner.ValueRO.areaSize,
                 });
             }
 

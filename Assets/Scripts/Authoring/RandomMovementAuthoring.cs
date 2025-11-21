@@ -29,6 +29,5 @@ public struct RandomMovement : IComponentData {
         public float3 originPosition; 
         public float distanceMin; 
         public float distanceMax; 
-        public Unity.Mathematics.Random randomSeed; 
-        public float2 areaSize; 
+        public Unity.Mathematics.Random randomSeed;
     }

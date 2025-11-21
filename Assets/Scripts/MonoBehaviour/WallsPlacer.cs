@@ -3,9 +3,6 @@ using UnityEngine;
 [ExecuteAlways]
 public class WallsPlacer : MonoBehaviour
 {
-    public enum PlaneMeshType { UnityPlane_10x10, Quad_1x1 }
-    public PlaneMeshType planeMesh = PlaneMeshType.UnityPlane_10x10;
-
     public GameObject wallPrefab; // assign a wall-shaped prefab (already sized)
     public float verticalOffset = 0f; // additional vertical offset for the wall base
     public float wallOutwardOffset = 0f; // move walls outward from the floor edge if needed

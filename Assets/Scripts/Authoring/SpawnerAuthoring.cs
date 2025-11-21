@@ -4,13 +4,10 @@ using Unity.Mathematics;
 
 public class SpawnerAuthoring : MonoBehaviour
 {
-
-    public Vector2 areaSize = new Vector2(5f, 5f);
     public float areaOffsetY = 0f;
-
-    [Header("Random movement")]
     public float randomMovementDistanceMin = 1f;
     public float randomMovementDistanceMax = 3f;
+    public float minArea = 7.5f;
 
     public class Baker : Baker<SpawnerAuthoring>
     {
@@ -21,8 +18,8 @@ public class SpawnerAuthoring : MonoBehaviour
             {
                 randomMovementDistanceMin = authoring.randomMovementDistanceMin,
                 randomMovementDistanceMax = authoring.randomMovementDistanceMax,
+                minArea = authoring.minArea,
                 hasSpawned = false,
-                areaSize = new float2(authoring.areaSize.x, authoring.areaSize.y),
                 areaOffsetY = authoring.areaOffsetY,
             });
         }
@@ -31,10 +28,12 @@ public class SpawnerAuthoring : MonoBehaviour
 
 public struct Spawner : IComponentData
 {
-    public int spawnCount;
+    public float areaOffsetY;
     public float randomMovementDistanceMin;
     public float randomMovementDistanceMax;
+    public float minArea;
+
+    public int spawnCount;
     public bool hasSpawned;
     public float2 areaSize;
-    public float areaOffsetY;
 }
